@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()  //次ページのHTML要素だけを読み取って表示するため、JavaScriptにて設定したイベントが発火しないケースがある。
 require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
