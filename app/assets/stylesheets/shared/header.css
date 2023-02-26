@@ -3,6 +3,10 @@
 }
 
 .top-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: white;
   width: 100vw;
   padding: 2vh 15vw;
   display: flex;
@@ -15,9 +19,9 @@
   align-items: center;
 }
 
-.furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
+.nichetalk-icon {
+  width: 15vw;
+  margin-right: 1vw;
 }
 
 .search-form {
@@ -37,7 +41,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #644d3d;
   padding: 8px;
 }
 
