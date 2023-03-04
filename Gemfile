@@ -57,3 +57,9 @@ group :production do
   gem 'pg'
   gem 'rubocop', require: false
 end
+
+gem 'devise'
+
+gem 'pry-rails'
+
+gem 'data-confirm-modal'

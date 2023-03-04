@@ -32,7 +32,7 @@
   width: 100vw;
   padding: 5vh 0;
   color: #FFF;
-  background-color: #272727;
+  background-color: #443f3f;
   text-align: center;
 }
 
@@ -53,9 +53,14 @@
 }
 
 .footer-link {
-  color: #FFF;
+  color: white;
   font-size: 12px;
   line-height: 30px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content:center;
 }
 
 .logo-white {
