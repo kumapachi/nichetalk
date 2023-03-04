@@ -106,3 +106,7 @@
   text-decoration: none;
   color: #333333;
 }
+
+.col-2 {
+  width: 200px;
+}
