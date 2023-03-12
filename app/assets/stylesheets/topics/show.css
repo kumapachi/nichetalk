@@ -26,9 +26,9 @@
 }
 
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
-  min-height: 500px;
+  height: 20vh;
+  width: 30vw;
+  min-height: 300px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
@@ -50,9 +50,9 @@
 }
 
 
-.item-red-btn {
+.item-blue-btn {
   text-align: center;
-  background-color: #ea352d;
+  background-color: navy;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;

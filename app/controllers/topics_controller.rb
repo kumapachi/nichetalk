@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all.order('created_at DESC')
@@ -22,6 +23,8 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    return if current_user.id == @topic.user_id
+    redirect_to root_path
   end
 
   def update
@@ -33,7 +36,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic.destroy if current_user == @topic.user_id
+    binding.pry
+    @topic.destroy if current_user.id == @topic.user_id
     redirect_to root_path
   end
 

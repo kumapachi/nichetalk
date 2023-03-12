@@ -1,13 +1,6 @@
 <%= form_with model: @topic, id: 'new_post', local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 
-  <%# <div class="image-field"> %>
-    <%# <div id="previews"></div> %>
-    <%# <div class="click-upload"> %>
-      <%# <%= f.file_field :images, id:"item-image", name: 'topic[images][]', data: {index: 0} %>
-    <%# </div> %>
-  <%# </div> %>
-
     <div class="img-upload">
       <div class="weight-bold-text">
         画像
@@ -38,7 +31,7 @@
   <%# 下部ボタン %>
   <div class="sell-btn-contents">
     <%= f.submit "送信する" ,class:"sell-btn" %>
-    <%=link_to 'もどる', "#", class:"back-btn" %>
+    <%=link_to 'もどる', topic_path, class:"back-btn" %>
   </div>
   <%# /下部ボタン %>
 <% end %>
