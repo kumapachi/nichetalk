@@ -8,14 +8,14 @@
   z-index: 999;
   background-color: white;
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 1vh 2vw;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .search-bar-contents {
   display: flex;
-  justify-content: space-between;
+  justify-content:start ;
   align-items: center;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .search-form {
-  width: 65vw;
+  width: 20vw;
   height: 5vh;
   display: flex;
   margin-bottom: 5px;
@@ -46,13 +46,14 @@
 }
 
 .search-icon {
-  width: 100%;
+  width: 2vw;
+  height: 2vh;
 }
 
 .nav {
   font-size: 18px;
   display: flex;
-  justify-content: space-between;
+  justify-content:end;
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
@@ -60,8 +61,9 @@
 
 .lists-left {
   display: flex;
-  min-width: 200px;
-
+  min-width: 100px;
+  align-items: flex-end;
+  margin-right: 10vw;
 }
 
 .category-list {

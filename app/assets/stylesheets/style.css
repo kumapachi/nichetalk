@@ -1,4 +1,10 @@
+/*boot strapのcssを上書きするためのcss */
+
 /* nav-itemの文字色 */
 .nav-link {
   color: rgb(0, 0, 0);
+}
+
+a {
+  text-decoration: none!important;
 }

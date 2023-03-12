@@ -63,3 +63,8 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'data-confirm-modal'
+
+gem 'active_hash'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

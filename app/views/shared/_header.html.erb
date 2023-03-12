@@ -1,7 +1,7 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("nichetalk-logo.jpg", class:"nichetalk-icon"), "/" %>
+    <%= link_to image_tag("nichetalk-logo2.png", class:"nichetalk-icon"), "/" %>
     <form class="search-form" action="#">
       <input class='input-box' placeholder='キーワードから探す'>
       <button class="search-button">
@@ -16,10 +16,10 @@
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, '', class: "nav-link", "data-bs-toggle": "modal", "data-bs-target": "#signinModal" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %> </li>
+        <li><%= link_to current_user.nickname, '', class: "login", "data-bs-toggle": "modal", "data-bs-target": "#signinModal" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "login" %> </li>
       <% else %>
-        <li><%= link_to "ログイン/新規登録", '', class: "nav-link", "data-bs-toggle": "modal", "data-bs-target": "#signinModal" %> </li>
+        <li><%= link_to "ログイン/新規登録", '', class: "login", "data-bs-toggle": "modal", "data-bs-target": "#signinModal" %> </li>
       <% end %>
     </ul>
   </div>
