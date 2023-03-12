@@ -70,56 +70,96 @@
     <%# </div> %>
     <ul class='item-lists'>
 
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <li class='list'>
-        <%= link_to "#" do %>
-        <div class='item-img-content'>
-          <%= image_tag "nichetalk-intro02.png", class: "item-img" %>
-
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= "タイトル" %>
-          </h3>
-          <div class='item-text'>
-            <%= "テキストテキストテキスト"%>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+      <%# インスタンス変数になにか入っている場合、中身のすべてを展開できる %>
+      <% @topics.each do |topic| %>
+        <li class='list'>
+          <%= link_to topic_path(topic.id) do %>
+            <% if topic.images.length == 1 %>
+              <div class='user-name'>
+                <%= topic.user.nickname %>
+              </div>
+              <div class='item-img-content'>
+                <%= image_tag topic.images[0].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img" if topic.images.attached? %>
+              </div>
+            <% elsif topic.images.length == 4 %>
+              <div class='user-name'>
+                <%= topic.user.nickname %>
+              </div>
+              <div class='item-img-box'>
+                <div class='item-img-content'>
+                  <%= image_tag topic.images[0].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img1" if topic.images.attached? %>
+                </div>
+                <div class='item-img-content'>
+                  <%= image_tag topic.images[1].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img2" if topic.images.attached? %>
+                </div>
+                <div class='item-img-content'>
+                  <%= image_tag topic.images[2].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img3" if topic.images.attached? %>
+                </div>
+                <div class='item-img-content'>
+                  <%= image_tag topic.images[3].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img4" if topic.images.attached? %>
+                </div>
+              </div>
+            <% else %>
+              <div class='user-name'>
+                <%= topic.user.nickname %>
+              </div>
+              <div class='item-img-content'>
+                <%= image_tag topic.images[0].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img" if topic.images.attached? %>
+              </div>
+            <% end %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= topic.title %>
+            </h3>
+            <div class='item-text'>
+              <%= topic.content %>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-      </li>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+          <% end %>
+        </li>
+      <% end %>
+      <%# //インスタンス変数になにか入っている場合、中身のすべてを展開できる %>
 
-      <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-      <%# 商品がある場合は表示されないようにしましょう %>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            トピックを投稿してね！
-          </h3>
-          <div class='item-text'>
-            <%= "テキストテキストテキスト" %>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+      <%# トピックがない場合は以下のダミーが表示 %>
+      <%# トピックがある場合は表示されない %>
+      <% if @topics.blank? %>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              トピックを投稿してね！
+            </h3>
+            <div class='item-text'>
+              <%= "テキストテキストテキスト" %>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-      </li>
-      <%# //商品がある場合は表示されないようにしましょう %>
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
+          <% end %>
+        </li>
+      <% end %>
+      <%# //とぴっくがある場合は表示されない %>
+      <%# //トピックがない場合は以下のダミー商品が表示 %>
     </ul>
   </div>
   <%# /商品一覧 %>
 </div>
-<%= link_to('#', class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>投稿する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% if user_signed_in? %>
+  <%= link_to(new_topic_path, class: 'purchase-btn') do %>
+    <span class='purchase-btn-text'>トピックを投稿する</span>
+    <%= image_tag 'icon_post.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% end %>
+<% else %>
+  <%= link_to(class: "nav-link", "data-bs-toggle": "modal", "data-bs-target": "#signinModal") do %>
+    <span class='purchase-btn-text'>投稿する</span>
+    <%= image_tag 'icon_post.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% end %>
 <% end %>
 <%= render "shared/footer" %>

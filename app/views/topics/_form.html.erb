@@ -1,0 +1,37 @@
+<%= form_with model: @topic, id: 'new_post', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div id="previews"></div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :images, id:"item-image",name: 'topic[images][]', data: {index: 0} %>
+      </div>
+    </div>
+  <div class="new-items">
+    <div class="weight-bold-text">
+      タイトル
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        トピックの詳細
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :content, class:"items-text", id:"item-info", placeholder:"トピックの詳細（必須 1,000文字まで" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+  </div>
+  <%# 下部ボタン %>
+  <div class="sell-btn-contents">
+    <%= f.submit "送信する" ,class:"sell-btn" %>
+    <%=link_to 'もどる', topic_path, class:"back-btn" %>
+  </div>
+  <%# /下部ボタン %>
+<% end %>
