@@ -36,7 +36,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @topic.destroy if current_user.id == @topic.user_id
     redirect_to root_path
   end

@@ -32,17 +32,12 @@ Things you may want to cover:
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false, default: ""  |
-| last_name          | string | null: false               |
-| first_name         | string | null: false               |
-| last_name_kana     | string | null: false               |
-| first_name_kana    | string | null: false               |
-| birthday           | date   | null: false               |
-
 
 ### Association
 
 - has_many :topics
-- has_many :comments
+- has_many :rooms
+- has_many :messages
 - has_many :favorites
 - has_many :follows
 
@@ -58,22 +53,37 @@ Things you may want to cover:
 ### Association
 
 - belongs_to  :user
-- has_many    :comments
+- has_one     :room
 - has_many    :favorites
-- has_one_attached :image
+- has_many_attached :images
 
-## comments テーブル
+## rooms テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | topic   | references | null: false, foreign_key: true |
-| comment | string     | null: false, foreign_key: true |
+
+### Association
+
+- has_many :users
+- has_one  :topic
+- has_many :messages
+
+## messages テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| topic   | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+| comment | string     |                                |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :topic
+- belongs_to :room
 - has_one_attached :image
 
 ## favorites テーブル
