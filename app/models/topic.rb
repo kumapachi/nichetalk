@@ -3,9 +3,12 @@ class Topic < ApplicationRecord
   has_many_attached :images
 
   validates         :title, presence: true
-  validates         :content, presence: true
-  validates         :images, presence: true
-  validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上4枚以下にしてください" }
+  validates         :content, presence: true, presence: true, unless: :was_attached?
+  # validates         :images, presence: true
+  validates :images, length: { maximum: 5, message: "は4枚以下にしてください" }
 
   # validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
+  def was_attached?
+    self.images.attached?
+  end
 end

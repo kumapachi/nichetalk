@@ -99,6 +99,13 @@
                   <%= image_tag topic.images[3].variant(resize: '500x500^', gravity: "center", crop: "500x500+0+0" ), class: "item-img4" if topic.images.attached? %>
                 </div>
               </div>
+            <% elsif topic.images.length == 0 %>
+              <div class='user-name'>
+                <%= topic.user.nickname %>
+              </div>
+              <div class='item-img-content'>
+                <%= image_tag "no_image_square.jpg", class: "item-img" %>
+              </div>
             <% else %>
               <div class='user-name'>
                 <%= topic.user.nickname %>
@@ -129,7 +136,7 @@
       <% if @topics.blank? %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+          <%= image_tag "davisuko-5E5N49RWtbA-unsplash.jpg", class: "item-img" %>
           <div class='item-info'>
             <h3 class='item-name'>
               トピックを投稿してね！
@@ -158,7 +165,7 @@
   <% end %>
 <% else %>
   <%= link_to(class: "nav-link", "data-bs-toggle": "modal", "data-bs-target": "#signinModal") do %>
-    <span class='purchase-btn-text'>投稿する</span>
+    <span class='purchase-btn-text'>ログイン</span>
     <%= image_tag 'icon_post.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% end %>
 <% end %>
