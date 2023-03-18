@@ -9,7 +9,8 @@
       <div id="previews"></div>
       <div class="click-upload">
         <p>
-          クリックしてファイルをアップロード
+          クリックしてファイルをアップロード<br>
+          4枚まで投稿可
         </p>
         <%= f.file_field :images, id:"item-image",name: 'topic[images][]', data: {index: 0} %>
       </div>
@@ -30,7 +31,7 @@
   </div>
   <%# 下部ボタン %>
   <div class="sell-btn-contents">
-    <%= f.submit "送信する" ,class:"sell-btn" %>
+    <%= f.submit "投稿する" ,class:"sell-btn" %>
     <%=link_to 'もどる', root_path, class:"back-btn" %>
   </div>
   <%# /下部ボタン %>
