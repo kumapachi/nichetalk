@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="OXI7JC_D92fod33khs66" name="ページ1">
-        <mxGraphModel dx="1600" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="557" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -780,15 +780,15 @@
                         <mxRectangle width="275" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="311" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;spacing=2;" vertex="1" parent="275">
+                <mxCell id="311" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;spacing=2;" parent="275" vertex="1">
                     <mxGeometry y="110" width="335" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="312" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;fontColor=none;noLabel=1;" vertex="1" parent="311">
+                <mxCell id="312" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;fontColor=none;noLabel=1;" parent="311" vertex="1">
                     <mxGeometry width="60" height="30" as="geometry">
                         <mxRectangle width="60" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="313" value="name (string型, NOT NULL)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=1;overflow=hidden;" vertex="1" parent="311">
+                <mxCell id="313" value="name (string型, NOT NULL)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=1;overflow=hidden;" parent="311" vertex="1">
                     <mxGeometry x="60" width="275" height="30" as="geometry">
                         <mxRectangle width="275" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -814,7 +814,7 @@
                         <mxPoint x="600" y="1090" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="304" value="" style="endArrow=ERone;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;entryX=0.497;entryY=1.073;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;" parent="1" source="74" target="282" edge="1">
+                <mxCell id="304" value="" style="endArrow=ERone;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endFill=0;" parent="1" source="74" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="599.71" y="628.3800000000001" as="sourcePoint"/>
                         <mxPoint x="600" y="580" as="targetPoint"/>

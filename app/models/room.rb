@@ -1,7 +1,14 @@
 class Room < ApplicationRecord
-  has_many   :users
-  # belongs_to :topic, optional: true
+  # attr_accessor :user_id, :topic_id
+  has_many   :room_users, dependent: :destroy
+  has_many   :users, through: :room_users
   has_many   :messages, dependent: :destroy
+  belongs_to :topic, optional: true, dependent: :destroy
 
-  validates :name, presence: true
+  validates  :name, presence: true
+
+  # def save
+    # topic情報を保存し、変数topicに代入する
+    # @topic = Topic.create(user_id: user_ids, topic_id: @topic)
+  # end
 end

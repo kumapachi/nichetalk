@@ -8,9 +8,11 @@ class RoomsController < ApplicationController
   end
 
   def create
+    # @topic = Topic.find(params[:topic_id])
     @room = Room.new(room_params)
-    if @room.save!
-      redirect_to room_messages_path(@room)
+    # @room = Room.find(params[:id])
+    if @room.save
+      redirect_to rooms_index_path
     else
       render :new
     end
@@ -25,7 +27,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name).merge(user_id: current_user.id)
+    params.require(:room).permit(:name, user_ids: []).merge(topic_id: params[:topic_id])
   end
 
 end

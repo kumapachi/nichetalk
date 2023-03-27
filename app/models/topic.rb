@@ -1,6 +1,7 @@
 class Topic < ApplicationRecord
   belongs_to        :user
   has_many_attached :images
+  has_one           :room
 
   validates         :title, presence: true
   validates         :content, presence: true, presence: true, unless: :was_attached?
