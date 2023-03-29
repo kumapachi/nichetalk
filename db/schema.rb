@@ -55,13 +55,9 @@ ActiveRecord::Schema.define(version: 2023_03_26_122904) do
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "topic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
-    t.index ["topic_id"], name: "index_rooms_on_topic_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,7 +88,5 @@ ActiveRecord::Schema.define(version: 2023_03_26_122904) do
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
-  add_foreign_key "rooms", "topics"
-  add_foreign_key "rooms", "users"
   add_foreign_key "topics", "users"
 end

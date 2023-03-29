@@ -50,7 +50,7 @@
   <%# //詳細ページで表示されている商品のカテゴリー名を表示 %>
 </div>
 <% if user_signed_in? %>
-  <%= link_to(new_topic_room_path(@topic), class: 'purchase-btn') do %>
+  <%= link_to(new_room_path, class: 'purchase-btn') do %>
     <span class='purchase-btn-text'>チャットルームへ移動する</span>
     <%= image_tag 'presentation_white.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% end %>

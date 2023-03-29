@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   end
   get 'messages/index'
   post 'rooms/index'
+  get 'rooms/index'
   resources :users, only: [:edit, :update]
-  resources :topics do
-    resources :rooms, only: [:new, :create, :destroy] do
-      resources :messages, only: [:index, :create]
-    end
+  resources :topics
+  resources :rooms, only: [:new, :create, :destroy] do
+    resources :messages, only: [:index, :create]
   end
 end
