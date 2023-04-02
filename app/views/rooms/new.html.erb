@@ -2,8 +2,8 @@
   <h1>新規チャットルーム</h1>
   <%# <% if user_signed_in? %>
     <%# <% if current_user.id == @topic.user_id %>
-      <%=form_with model: @room, url: rooms_path , local: true do |f|%>
-      <%= render 'shared/error_messages', model: f.object %>
+      <%=form_with model: @room, local: true do |f|%>
+      <%# <%= render 'shared/error_messages', model: f.object %>
         <div class='chat-room-form__field'>
           <div class='chat-room-form__field--left'>
             <%= f.label :name, :チャットルーム名, class: 'chat-room-form__label'%>
@@ -22,10 +22,10 @@
             <select name="room[user_ids][]">
              <option value="">チャットするユーザーを選択してください</option>
              <% User.where.not(id: current_user.id).each do |user| %>
-               <option value=<%=user.id%>><%= user.nickname %></option>
+               <option value=<%= user.id %>><%= user.nickname %></option>
              <% end %>
            </select>
-           <input name="room[user_ids][]" type="hidden" value=<%=current_user.id %>>
+           <input name="room[user_ids][]", type="hidden" value=<%=current_user.id %>>
           </div>
         </div>
         <div class='chat-room-form__field'>
