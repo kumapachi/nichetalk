@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   # attr_accessor :user_id, :topic_id
   has_many :room_users, dependent: :destroy
-  has_many :users, through: :room_users
+  has_many :users, through: :topics
   accepts_nested_attributes_for :room_users
   has_many :messages, dependent: :destroy
   # belongs_to :topic, optional: true, dependent: :destroy

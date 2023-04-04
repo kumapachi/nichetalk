@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :room
-  belongs_to :user
+  belongs_to :room, optional: true
+  belongs_to :user, optional: true
   has_one_attached :image
 
   validates  :content, presence: true, unless: :was_attached?

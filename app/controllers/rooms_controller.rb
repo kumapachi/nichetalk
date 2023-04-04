@@ -1,7 +1,14 @@
 class RoomsController < ApplicationController
 
   def index
-    @rooms = Room.all.order(id: "DESC")
+    # @rooms = Room.all.order(id: "DESC")
+    @messages = Message.all
+    # 自分以外のユーザー一覧
+    @users = User.where.not(id: current_user.id)
+    # フォロー中ユーザー
+    @followings = current_user.followings
+    # フォローされているユーザー
+    @followers = current_user.followers
   end
 
   def new
@@ -15,6 +22,10 @@ class RoomsController < ApplicationController
     else
       render new_room_path
     end
+  end
+
+  def show
+    @messages = Message.all
   end
 
   def destroy

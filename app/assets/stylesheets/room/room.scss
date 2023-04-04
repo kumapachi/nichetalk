@@ -93,3 +93,8 @@ select {
 .field_with_errors {
   display: contents;
 }
+
+.follow-wraper{
+  display: flex;
+  justify-content: space-between;
+}
