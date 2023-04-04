@@ -11,8 +11,19 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'
   end
   has_many :room_users
-  has_many :rooms, through: :room_users
+  has_many :rooms, through: :topics
   accepts_nested_attributes_for :room_users
   has_many :messages
   has_many :topics
+  # 自分がフォローしているユーザーとの関連
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
+  has_many :followings, through: :active_relationships, source: :follower
+  # 自分がフォローされるユーザーとの関連
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+  has_many :followers, through: :passive_relationships, source: :following
+
+  def followed_by?(user)
+    follower =  passive_relationships.find_by(following_id: user.id)
+    return follower.present?
+  end
 end

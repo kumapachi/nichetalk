@@ -29,7 +29,7 @@
       <tbody>
         <tr>
           <th class="detail-item">ニックネーム</th>
-          <td class="detail-value"><%= @topic.user.nickname %></td>
+          <td class="detail-value"><%= link_to @topic.user.nickname, user_path(@topic.user_id) %></td>
         </tr>
         <tr>
           <th class="detail-item">トピック</th>
@@ -42,6 +42,10 @@
         <tr>
       </tbody>
     </table>
+
+    <div class="create-room">
+      <p class="user-nickname"><%= link_to "#{@topic.user.nickname}をフォローする", user_path(@topic.user_id) %></p>
+    </div>
   </div>
   <%# /トピックの概要 %>
 

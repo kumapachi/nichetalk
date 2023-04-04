@@ -1,0 +1,20 @@
+<div class="user-page">
+  <div class="user-contents">
+    <p class="user-nickname"><%= @user.nickname %></p>
+    <% if current_user != @user %>
+      <% if @user.followed_by?(current_user) %>
+        <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
+      <% else %>
+        <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn" ,method: :post %>
+      <% end %>
+    <% end %>
+    <%# <h3>フォロー</h3> %>
+    <%# <% @user.followings.each do |user| %>
+      <%# <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %>
+    <%# <% end %>
+    <%# <h3>フォロワー</h3> %>
+    <%# <% @user.followers.each do |user| %>
+      <%# <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %>
+    <%# <% end %>
+  </div>
+</div>

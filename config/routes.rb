@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   end
   get 'messages/index'
   get 'rooms/index'
-  resources :users, only: [:edit, :update]
-  resources :rooms, only: [:new, :create, :destroy] do
+  resources :users, only: [:show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+  end
+  resources :rooms, only: [:new, :create, :show, :destroy] do
     resources :messages, only: [:index, :create]
+    get :follows,   on: :member
+    get :followers, on: :member
   end
   resources :topics
+  mount ActionCable.server => '/cable'
 end
