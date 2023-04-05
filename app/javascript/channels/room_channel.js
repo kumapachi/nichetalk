@@ -19,7 +19,8 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
 });
 
 window.addEventListener("keypress", function(e) {
-  if (e.keyCode === 13) {
+  //  return(Enter)が押された時
+  if (e.keyCode is 13) {
     appRoom.speak(e.target.value);
     e.target.value = '';
     e.preventDefault();

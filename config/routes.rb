@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
   end
-  resources :rooms, only: [:new, :create, :show, :destroy] do
+  resources :rooms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :messages, only: [:index, :create]
     get :follows,   on: :member
     get :followers, on: :member
