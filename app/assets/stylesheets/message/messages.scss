@@ -65,8 +65,13 @@
   margin-top: 36px;
 }
 
+.right-header {
+  display: flex;
+}
+
 .header-button {
   margin-top: 40px;
+  padding:6px;
 }
 
 .header-button a {

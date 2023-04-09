@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', function(){
   // 新規投稿・編集ページのフォームを取得
-  const postForm = document.getElementById('new_post');
+  const postForm = document.getElementById('new_post_message');
   // プレビューを表示するためのスペースを取得
-  const previewList = document.getElementById('previews');
+  const previewList = document.getElementById('previews_message');
   // 新規投稿・編集ページのフォームがないならここで終了。「!」は論理否定演算子。
   if (!postForm) return null;
 
   // 投稿できる枚数の制限を定義
-  const imageLimits = 4;
+  const imageLimits = 2;
 
   // プレビュー画像を生成・表示する関数
   const buildPreviewImage = (dataIndex, blob) =>{
     // 画像を表示するためのdiv要素を生成
     const previewWrapper = document.createElement('div');
-    previewWrapper.setAttribute('class', 'preview');
+    previewWrapper.setAttribute('class', 'preview_message');
     previewWrapper.setAttribute('data-index', dataIndex);
 
     // 表示する画像を生成
     const previewImage= document.createElement('img');
-    previewImage.setAttribute('class', 'preview-image');
+    previewImage.setAttribute('class', 'preview-image2');
     previewImage.setAttribute('src', blob);
 
     // 削除ボタンを生成
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function(){
     // 2枚目用のfile_fieldを作成
     const newFileField = document.createElement('input');
     newFileField.setAttribute('type', 'file');
-    newFileField.setAttribute('name', 'topic[images][]');
+    newFileField.setAttribute('name', 'post[images][]');
 
     // 最後のfile_fieldを取得
-    const lastFileField = document.querySelector('input[type="file"][name="topic[images][]"]:last-child');
+    const lastFileField = document.querySelector('input[type="file"][name="post[images][]"]:last-child');
     // nextDataIndex = 最後のfile_fieldのdata-index + 1
     const nextDataIndex = Number(lastFileField.getAttribute('data-index')) +1;
     newFileField.setAttribute('data-index', nextDataIndex);
@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // 指定したdata-indexを持つプレビューとfile_fieldを削除する
   const deleteImage = (dataIndex) => {
-    const deletePreviewImage = document.querySelector(`.preview[data-index="${dataIndex}"]`);
+    const deletePreviewImage = document.querySelector(`.preview_message[data-index="${dataIndex}"]`);
     deletePreviewImage.remove();
     const deleteFileField = document.querySelector(`input[type="file"][data-index="${dataIndex}"]`);
     deleteFileField.remove();
-  
+
     // 画像の枚数が最大のときに削除ボタンを押した場合、file_fieldを1つ追加する
-    const imageCount = document.querySelectorAll(".preview").length;
+    const imageCount = document.querySelectorAll(".preview_message").length;
     if (imageCount == imageLimits - 1) buildNewFileField();
   };
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const blob = window.URL.createObjectURL(file);
 
     // data-indexを使用して、既にプレビューが表示されているかを確認する
-    const alreadyPreview = document.querySelector(`.preview[data-index="${dataIndex}"]`);
+    const alreadyPreview = document.querySelector(`.preview_message[data-index="${dataIndex}"]`);
 
     if (alreadyPreview) {
       // クリックしたfile_fieldのdata-indexと、同じ番号のプレビュー画像が既に表示されている場合は、画像の差し替えのみを行う
@@ -94,13 +94,14 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     buildPreviewImage(dataIndex, blob);
+
     // 画像の枚数制限に引っかからなければ、新しいfile_fieldを追加する
-    const imageCount = document.querySelectorAll(".preview").length;
+    const imageCount = document.querySelectorAll(".preview_message").length;
     if (imageCount < imageLimits) buildNewFileField();
   };
 
   // input要素を取得
-  const fileField = document.querySelector('input[type="file"][name="topic[images][]"]');
+  const fileField = document.querySelector('input[type="file"][name="post[images][]"]');
 
   // input要素で値の変化が起きた際に呼び出される関数
   fileField.addEventListener('change', changedFileField);

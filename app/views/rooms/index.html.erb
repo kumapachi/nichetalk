@@ -1,25 +1,8 @@
-<%# <div class="wrapper"> %>
-  <%# <div class="side-bar"> %>
-    <%# <%= render "messages/side_bar" %>
-  <%# </div> %>
-  <%# <div class="chat"> %>
-    <%# <%= render "main_chat" %>
-  <%# </div> %>
-<%# </div> %>
-
-<% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <p>
-    YourName: <%= current_user.nickname %>
-  </p>
-<% end %>
-
-<h2>Chat room</h2>
-
-<div id="messages">
-  <%= render partial: 'rooms/messages' %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "messages/side_bar" %>
+  </div>
+  <div class="chat">
+    <%= render "main_chat" %>
+  </div>
 </div>
-
-
-<!-- 投稿フォーム -->
-<input type="text" data-behavior="room_speaker" data-user=<%= current_user.id %>>

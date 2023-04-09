@@ -12,3 +12,17 @@
   cursor: pointer;
   margin-bottom: 5px;
 }
+
+.preview-image{
+  height: 100px;
+  width: 100px;
+  /* 縦横比を保ったまま、画像を縦横300pxのサイズに収めるプロパティです */
+  object-fit: contain;
+}
+
+.preview-image2{
+  width: 300px;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+}

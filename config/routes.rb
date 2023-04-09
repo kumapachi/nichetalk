@@ -5,15 +5,17 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   get 'messages/index'
-  get 'rooms/index'
+  # get 'rooms/index'
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
   end
-  resources :rooms, only: [:new, :create, :show, :destroy] do
-    resources :messages, only: [:index, :create]
-    get :follows,   on: :member
-    get :followers, on: :member
+  resources :topics do
+    resources :rooms, only: [:new, :index, :create, :destroy] do
+      resources :messages, only: [:index, :create]
+      get :follows,   on: :member
+      get :followers, on: :member
+    end
   end
-  resources :topics
+
   mount ActionCable.server => '/cable'
 end

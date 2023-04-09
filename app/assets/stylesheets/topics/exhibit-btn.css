@@ -22,3 +22,13 @@
 .purchase-btn-icon {
   width: 80%;
 }
+
+.preview-window {
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  border-radius: 5% 5%;
+  bottom: 300px;
+  position: fixed;
+  padding: 15px;
+}

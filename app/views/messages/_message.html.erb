@@ -6,14 +6,15 @@
     </div>
     <div class="message-date">
       <!-- 投稿した時刻を出力する -->
-      <%= l message.created_at %>
+      <%= l message.created_at, format: :long %>
     </div>
   </div>
   <div class="lower-message">
     <div class="message-content">
       <!-- 投稿したメッセージ内容を記述する -->
-      <%= message.content %>
+      <%= message.comment %>
     </div>
-  <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+    <%# <%= image_tag message.images.variant(resize: '500x500'), class: 'message-image' if message.images.attached? %>
+    <%= image_tag message.image.variant(resize: '300x300'), class: 'message-image' if message.image.attached? %>
   </div>
 </div>
