@@ -6,22 +6,34 @@
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
+      <%= link_to "チャットを終了する", topic_room_path(@topic, @room), method: :delete %>
+    </div>
+    <div class="header-button">
+      <%= link_to "ホームヘ戻る", root_path %>
     </div>
   </div>
+
 </div>
 
 <div class="messages">
   <%= render partial: 'message', collection: @messages %>
 </div>
 
-<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
+<%= form_with model: @message, url:topic_room_messages_path, id: 'new_post_message', class: 'form', local: true do |f| %>
+
   <div class="form-input">
-    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <%= f.text_field :comment, class: 'form-message', placeholder: 'type a comment' %>
     <label class="form-image">
       <span class="image-file">画像</span>
-      <%= f.file_field :image, class: 'hidden' %>
+      <%# <div class= 'preview-window'> %>
+        <%# <div id="previews_message"></div> %>
+      <%# </div> %>
+      <%# <div class="click-upload"> %>
+        <%# <%= f.file_field :image, id:"post-image", class: 'hidden', name: 'post[images][]', data: {index: 0} %>
+      <%# </div> %>
+        <%= f.file_field :image, id:"post-image", class: 'hidden' %>
     </label>
   </div>
   <%= f.submit '送信', class: 'form-submit' %>
+  <%= render 'shared/error_messages', model: f.object %>
 <% end %>

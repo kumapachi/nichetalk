@@ -11,8 +11,8 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'
   end
   has_many :room_users
-  has_many :rooms, through: :topics
-  accepts_nested_attributes_for :room_users
+  has_many :rooms, through: :room_users
+  # accepts_nested_attributes_for :room_users
   has_many :messages
   has_many :topics
   # 自分がフォローしているユーザーとの関連
