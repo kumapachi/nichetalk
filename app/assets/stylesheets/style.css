@@ -9,6 +9,40 @@ a {
   text-decoration: none!important;
 }
 
-/* body { */
-  /* background-color: red; */
-/* } */
+.user-nickname-follow {
+  font-size: 30px;
+}
+
+.btn--blue,
+a.btn--blue {
+  color: #fff;
+  background-color: blue;
+}
+.btn--blue:hover,
+a.btn--blue:hover {
+  color: #fff;
+  background: blue;
+}
+
+.btn--radius {
+   border-radius: 100vh;
+}
+
+thead,
+tfoot {
+    color: #000000;
+}
+
+tbody {
+    background-color: #ffffff;
+}
+
+table {
+    border: 2px solid rgb(200, 200, 200);
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+}

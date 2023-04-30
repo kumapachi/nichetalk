@@ -1,13 +1,39 @@
+<%= render "shared/header" %>
 <div class="user-page">
   <div class="user-contents">
-    <p class="user-nickname"><%= @user.nickname %></p>
+    <p class="user-nickname-follow"><%= @user.nickname %></p>
     <% if current_user != @user %>
       <% if @user.followed_by?(current_user) %>
-        <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
+        <%=link_to "フォローを解除", user_relationships_path(@user.id),class: "btn btn--blue btn--radius" , method: :delete %>
       <% else %>
-        <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn" ,method: :post %>
+        <%=link_to "#{@user.nickname}をフォローする", user_relationships_path(@user.id),class: "btn btn--blue btn--rudius" ,method: :post %>
       <% end %>
     <% end %>
+
+    <div class="item-box">
+    <table class="detail-table">
+      <thead>
+        <tr>
+          <th class="detail-item">フォロー</th>
+          <th class="detail-item">フォロワー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <% @user.followings.each do |user| %>
+              <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
+            <% end %>
+          </td>
+          <td>
+            <% @user.followers.each do |user| %>
+              <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
     <%# <h3>フォロー</h3> %>
     <%# <% @user.followings.each do |user| %>
       <%# <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %>
@@ -18,3 +44,4 @@
     <%# <% end %>
   </div>
 </div>
+<%= render "shared/second-footer" %>
