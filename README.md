@@ -1,29 +1,62 @@
-# README
+# アプリケーション名
+NICHE TALK
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+映えない、バズらない、チルいをテーマに、ニッチな話題で盛り上がれる少数派のためのコミュニケーションアプリ。
 
-Things you may want to cover:
+# URL
+https://nichetalk-38528.onrender.com
 
-* Ruby version
+# テスト用アカウント
+Basic認証
+・Basic認証用ID： admin
+・Basic認証用パスワード： 2222
+・メールアドレス: test@test.com
+・パスワード: 111aaa
 
-* System dependencies
+# 利用方法
 
-* Configuration
+## トピック投稿
+  1.トップページのヘッダーからユーザー登録を行う
+  2.右下の投稿するボタンをクリックし、トピック投稿画面へ推移する
+  3.画像、タイトル、トピック詳細を入力し投稿するボタンをクリックする
 
-* Database creation
+## チャットルーム機能
+  1.トピック詳細画面右下よりチャットルームへ移動するボタンをクリックし、ルームへ推移する
+  2.ルームサイドバーよりチャットを作成するをクリックし、チャットルームを作成する
+  3.サイドバーのチャットルーム名をクリックしチャットルームへ入室する
+  4.下部にメッセージや画像を入力し送信をクリックする
 
-* Database initialization
+# アプリケーションを作成した背景
+  以前使用していたSNSで常に映えることを意識した投稿を続けることにSNS疲れを感じていた。ただ、映えを意識しない本当に自分を好きなことで共有できる仲間と繋がりたいという思いはあった。
+  特に自分と同じ30代男性は同じような悩みを抱えているだろうと推測し、悩みを解決するために、少数派のための映えやバズリを意識しないコミュニケーションが取れるアプリケーションを開発することにした。
 
-* How to run the test suite
+# 洗い出した要件
+  要件を定義したシート
+  https://docs.google.com/spreadsheets/d/1ex6EKv3tdV95T-kmqmrW5hseenZFXoOL8O7szyy32rI/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+# 実装した機能についての説明
 
-* Deployment instructions
+## ログイン機能
+https://drive.google.com/file/d/1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw/view?usp=share_link
 
-* ...
+!ログイン動画スロー(https://drive.google.com/uc?export=view&id=1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw)
 
-# テーブル設計
+## トピック投稿機能
+https://drive.google.com/file/d/1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN/view?usp=share_link
+
+!トピック投稿動画スロー(https://drive.google.com/uc?export=view&id=1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN)
+
+# 実装予定の機能
+現在、トークルーム機能や実装済み機能の不具合などを修正中
+今後はお気に入り機能やフォロー機能を実装予定
+
+
+
+# データベース設計、画面遷移図
+https://drive.google.com/file/d/1ETu-rrWQ-UQpVGB2QSonfRYyoNUTxBn6/view?usp=sharing
+!ER図(https://drive.google.com/uc?export=view&id=1ETu-rrWQ-UQpVGB2QSonfRYyoNUTxBn6
+
 
 ## users テーブル
 
@@ -97,3 +130,16 @@ Things you may want to cover:
 
 - has_many : follower
 - has_many : followed
+
+# 開発環境
+
+Ruby/Ruby on Rails/MySQL/GitHub /AWS/Render/Visual Studio Code
+
+# 動作確認方法
+
+・WebブラウザGoogle Chromeの最新版を利用してアクセスしてください。  
+・ただしデプロイ等で接続できないタイミングもございます。その際は少し時間をおいてから接続してください。  
+・接続先およびログイン情報については、上記の通りです。  
+・同時に複数の方がログインしている場合に、ログインできない可能性があります。  
+・テストアカウントでログイン→トップページから出品ボタン押下→商品情報入力→商品出品  
+・確認後、ログアウト処理をお願いします。
