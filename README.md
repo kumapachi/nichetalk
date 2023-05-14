@@ -38,11 +38,11 @@ https://nichetalk-38528.onrender.com
 
 ## ログイン機能
 
-![ログイン動画スロー](https://drive.google.com/uc?export=view&id=1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw)  
+![ログイン動画スロー](https://drive.google.com/uc?export=view&id={1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw})  
 
 ## トピック投稿機能
 
-![トピック投稿動画スロー](https://drive.google.com/uc?export=view&id=1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN)  
+![トピック投稿動画スロー](https://drive.google.com/uc?export=view&id={1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN})  
 
 # 実装予定の機能
 現在、トークルーム機能や実装済み機能の不具合などを修正中  
@@ -52,7 +52,7 @@ https://nichetalk-38528.onrender.com
 
 # データベース設計、画面遷移図
 
-![ER図](https://drive.google.com/uc?export=view&id=1ETu-rrWQ-UQpVGB2QSonfRYyoNUTxBn6)  
+![ER図](https://drive.google.com/uc?export=view&id={1ETu-rrWQ-UQpVGB2QSonfRYyoNUTxBn6})  
 
 
 ## users テーブル
