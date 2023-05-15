@@ -40,9 +40,14 @@ https://nichetalk-38528.onrender.com
 
 ![ログイン動画](https://drive.google.com/uc?export=view&id=1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw)  
 
+https://drive.google.com/file/d/1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw/view?usp=share_link  
+
 ## トピック投稿機能
 
-![トピック投稿動画](https://drive.google.com/uc?export=view&id=1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN)  
+
+![トピック投稿動画](https://drive.google.com/uc?export=view&id=13RPOhOSP5JnpJ3QAp1E5pd-BA-QAZ6Yy)  
+
+https://drive.google.com/file/d/13RPOhOSP5JnpJ3QAp1E5pd-BA-QAZ6Yy/view?usp=share_link  
 
 # 実装予定の機能
 現在、トークルーム機能や実装済み機能の不具合などを修正中  
