@@ -15,7 +15,7 @@ https://nichetalk-38528.onrender.com
 
 # 利用方法
 
-## トピック投稿
+## トピック投稿機能
   1.トップページのヘッダーからユーザー登録を行う  
   2.右下の投稿するボタンをクリックし、トピック投稿画面へ推移する  
   3.画像、タイトル、トピック詳細を入力し投稿するボタンをクリックする  
@@ -38,11 +38,11 @@ https://nichetalk-38528.onrender.com
 
 ## ログイン機能
 
-![ログイン動画スロー](https://drive.google.com/uc?export=view&id=1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw)  
+![ログイン動画](https://drive.google.com/uc?export=view&id=1rUR3bvY8e6dZc2Jr2g5cAPP2Z-GX_HBw)  
 
 ## トピック投稿機能
 
-![トピック投稿動画スロー](https://drive.google.com/uc?export=view&id=1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN)  
+![トピック投稿動画](https://drive.google.com/uc?export=view&id=1uPDsi1Uwpg271AwFPSa-x10J4c2XuKaN)  
 
 # 実装予定の機能
 現在、トークルーム機能や実装済み機能の不具合などを修正中  
@@ -84,21 +84,34 @@ https://nichetalk-38528.onrender.com
 
 - belongs_to  :user
 - has_one     :room
-- has_many    :favorites
+- has_many    :relationship
 - has_many_attached :images
 
 ## rooms テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
+| name    | string     | null: false                    |
 | topic   | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :users
-- has_one  :topic
-- has_many :messages
+- belongs_to  :topic
+- has_many    :users
+- has_many    :messages
+- has_many    :room_users
+
+## room_users テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :room
+- belongs_to :user
 
 ## messages テーブル
 
@@ -107,7 +120,7 @@ https://nichetalk-38528.onrender.com
 | user    | references | null: false, foreign_key: true |
 | topic   | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
-| comment | string     |                                |
+| comment | string     | null: false                    |
 
 ### Association
 
@@ -116,7 +129,7 @@ https://nichetalk-38528.onrender.com
 - belongs_to :room
 - has_one_attached :image
 
-## favorites テーブル
+## relationships テーブル
 
 | Column       | Type    | Options     |
 | ------------ | ------- | ----------- |
