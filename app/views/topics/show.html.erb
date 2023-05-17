@@ -66,13 +66,15 @@
   <%# //詳細ページで表示されている商品のカテゴリー名を表示 %>
 </div>
 <% if user_signed_in? %>
-  <%= link_to(topic_rooms_path(@topic), class: 'purchase-btn') do %>
-    <span class='purchase-btn-text'>チャットルームへ移動する</span>
-    <%= image_tag 'presentation_white.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% if current_user.id != @topic.user_id %>
+    <%= link_to(topic_rooms_path(@topic), class: 'purchase-btn') do %>
+      <span class='purchase-btn-text'>チャットルームへ移動する</span>
+      <%= image_tag 'presentation_white.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    <% end %>
   <% end %>
 <% else %>
   <%= link_to(class: "nav-link", "data-bs-toggle": "modal", "data-bs-target": "#signinModal") do %>
-    <span class='purchase-btn-text'>投稿する</span>
+    <span class='purchase-btn-text'>ログイン</span>
     <%= image_tag 'presentation_white.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% end %>
 <% end %>

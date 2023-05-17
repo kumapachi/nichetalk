@@ -23,7 +23,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    # params.require(:message).permit(:content, {images: []}).merge(user_id: current_user.id, room_id: params[:room_id])
     params.require(:message).permit(:comment, :image).merge(user_id: current_user.id, topic_id: params[:topic_id], room_id: params[:room_id])
   end
 
